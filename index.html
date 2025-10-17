@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Hary</title>
+
+  <!-- FONT & ICON -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ========== ROOT VARIABEL WARNA ========== */
+    :root {
+      --primary: #007bff;
+      --secondary: #00b4d8;
+      --bg: #f9fafc;
+      --text: #222;
+      --card-bg: #fff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    body.dark {
+      --bg: #1b1b1b;
+      --text: #f2f2f2;
+      --card-bg: #262626;
+      --shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    /* ========== GAYA DASAR ========== */
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ========== TOMBOL DARK MODE ========== */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 90px 20px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 12px;
+      opacity: 0.9;
+    }
+
+    /* ========== SECTION UMUM ========== */
+    section {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    /* ========== ABOUT ========== */
+    .about {
+      text-align: center;
+    }
+
+    .about img {
+      width: 150px;
+      border-radius: 50%;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .about img:hover {
+      transform: scale(1.05);
+    }
+
+    .about p {
+      max-width: 600px;
+      margin: 20px auto 0;
+      color: #555;
+    }
+
+    body.dark .about p {
+      color: #ccc;
+    }
+
+    /* ========== PROJECTS ========== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .project-card h3 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .project-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    body.dark .project-card p {
+      color: #bbb;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 60px;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+
+    body.dark footer {
+      background: #111;
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      color: #aaa;
+      margin: 0 8px;
+      font-size: 1.3rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--secondary);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 600px) {
+      header {
+        padding: 70px 10px;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      section {
+        margin: 60px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== TOMBOL DARK MODE ========== -->
+  <button class="theme-toggle" id="themeToggle" title="Ganti Tema">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <h1>Halo, Saya Hary 👋</h1>
+    <p>Web Developer | Pembelajar Teknologi | Pembuat Solusi Digital</p>
+  </header>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about">
+    <img src="https://i.pravatar.cc/150?img=12" alt="Foto Profil">
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya seorang pengembang web yang bersemangat mempelajari teknologi modern.
+      Saya fokus pada pembuatan antarmuka yang sederhana, cepat, dan mudah digunakan.
+      Saya menguasai HTML, CSS, JavaScript, Python, dan PHP.
+    </p>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section>
+    <h2>Proyek Saya</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>🌐 Portfolio Website</h3>
+        <p>Website pribadi untuk menampilkan proyek dan pengalaman saya secara profesional.</p>
+      </div>
+      <div class="project-card">
+        <h3>📊 Data Dashboard</h3>
+        <p>Aplikasi interaktif untuk analisis data menggunakan Python dan Chart.js.</p>
+      </div>
+      <div class="project-card">
+        <h3>📝 Blog Pribadi</h3>
+        <p>Tempat saya berbagi artikel tentang pemrograman dan teknologi web modern.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>© 2025 Hary — Dibuat dengan ❤️ menggunakan HTML, CSS & JavaScript.</p>
+  </footer>
+
+  <!-- ========== SCRIPT DARK MODE ========== -->
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = toggleBtn.querySelector('i');
+
+    // Cek preferensi tema sebelumnya
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      icon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    // Fungsi toggle tema
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      icon.classList.toggle('fa-moon', !isDark);
+      icon.classList.toggle('fa-sun', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
